@@ -1,3 +1,4 @@
+// #define WINDOWS 1
 #include <iostream>
 #include <iomanip>
 
@@ -11,8 +12,21 @@ bool PuzzlePlaceable;
 
 void pause()
 {
-	cout << "Press Enter to continue..." << endl;
-	system("read");
+	#ifdef WINDOWS
+		system("pause");
+	#else
+		cout << "Press Enter to continue..." << endl;
+		system("read");
+	#endif
+}
+
+void clrscr()
+{
+	#ifdef WINDOWS
+		system("cls");
+	#else
+		system("clear");
+	#endif
 }
 
 void initialization() {
@@ -398,7 +412,7 @@ void GameStart() {
 	game.GenSample();
 
 	do {
-		system("clear");
+		clrscr();
 		game.gameboard();
 		game.printnotshow();
 
@@ -415,10 +429,10 @@ void GameStart() {
 				switch (opt) {
 				case('Y'):
 				case('y'):
-					cout << setw(20) << "\nYou lost!!!\n";
+					cout << setfill(' ')<< setw(20) << "\nYou lost!!!\n";
 					quit = true; // user quits
 					pause();
-					system("clear");
+					clrscr();
 					game.showsolution();
 					initialize = false; // allows the gameboard to be initialized again
 					pause();
@@ -490,7 +504,7 @@ void GameStart() {
 							cout << "Wrong input! Try again.\n";
 							initialization();
 							pause();
-							system("clear");
+							clrscr();
 							game.gameboard();
 							game.printnotshow();
 							goto input;
@@ -556,7 +570,7 @@ void Menu() {
 	char quit = 'n';
 
 	do {
-		system("clear");
+		clrscr();
 		int opt; // move to private
 		int chance;
 		srand(time(NULL));
@@ -588,14 +602,14 @@ void Menu() {
 			break;
 
 		case 4://Credits
-			system("clear");
-			cout << setw(15) << "Group 6" << '\n' 
-				 << setfill('-') << setw(80) << setfill(' ') << '\n'; 
-			cout << left << setw(15) << "Ho Kwun Kan" << "21020294A\n";
-			cout << left << setw(15) << "Lee Kin Long" << "21119085A\n";
-			cout << left << setw(15) << "Leung Pak Ho" << "21109381A\n";
-			cout << left << setw(15) << "Ng Tsz To" << "21112810A\n";
-			cout << left << setw(15) << "So Yat Hei" << "21094375A\n";
+			clrscr();
+			cout << right << setfill(' ') << setw(15) << "Group 6" << endl; 
+			cout << setfill('-') << setw(30) << ' ' << endl;  
+			cout << left << setfill(' ') << setw(15) << "Ho Kwun Kan" << "21020294A\n";
+			cout << left << setfill(' ') << setw(15) << "Lee Kin Long" << "21119085A\n";
+			cout << left << setfill(' ') << setw(15) << "Leung Pak Ho" << "21109381A\n";
+			cout << left << setfill(' ') << setw(15) << "Ng Tsz To" << "21112810A\n";
+			cout << left << setfill(' ') << setw(15) << "So Yat Hei" << "21094375A\n";
 			pause();
 			Menu();
 			break;
@@ -632,7 +646,7 @@ void Menu() {
 void NumOfPuzzle() {
 	int temp = PuzzleNum;
 
-	system("clear");
+	clrscr();
 	initialization();
 
 	cout << "Current Number: " << PuzzleNum << "\n";
@@ -656,7 +670,7 @@ void RangeOfRandomNum() {
 	int temp1 = PMin;
 	int temp2 = PMax;
 
-	system("clear");
+	clrscr();
 	initialization();
 
 	cout << "Current range of random numbers: " << PMin << " - " << PMax << endl;
@@ -692,7 +706,7 @@ void RangeOfRandomNum() {
 }
 
 void Setting() {
-	system("clear");
+	clrscr();
 	int opt; // <-- private variable
 
 	initialization();
@@ -718,7 +732,7 @@ void Setting() {
 }
 
 void useful() {
-	system("clear");
+	clrscr();
 	int opt;// <-- private variable
 
 	cout << "*** Useful feature(s) added ***\n";
@@ -754,25 +768,24 @@ void useful() {
 }
 
 void guideline() {
-	system("clear");
-	cout << setw(40) << "Game Guideline" << '\n' 
-		 << setfill('-') << setw(80) << '\n'; 
-	cout << setfill(' ') << "When the game starts, an empty game board is shown\n";
+	clrscr();
+	cout << right << setfill(' ') << setw(40) << "Game Guideline" << endl;
+	cout << setfill('-') << setw(80) << ' ' << endl; 
+	cout << "When the game starts, an empty game board is shown\n";
 	cout << "A set of puzzle pieces for putting into the game board is displayed\n";
 	cout << "Your goal is to place all puzzle pieces into the game board\n";
 	cout << "When the puzzle is done, you win\n";
 	cout << "Otherwise, you lose\n";
-	cout << setfill(' ');
 	pause();
 	useful();
 
 }
 
 void rules() {
-	system("clear");
-	cout << setw(40) << "Rules" << '\n' 
-		 << setfill('-') << setw(80) << '\n'; 
-	cout << setfill(' ') << "Every time you can either place a puzzle piece in or take one out of the game board. \n";
+	clrscr();
+	cout << right << setfill(' ') << setw(40) << "Rules" << endl; 
+	cout << setfill('-') << setw(80) << ' ' << endl; 
+	cout << "Every time you can either place a puzzle piece in or take one out of the game board. \n";
 	cout << "You can choose any not-yet-placed puzzle piece and place it at any location in the game board\n";
 	cout << "The touching sides of two puzzle must have the same number\n";
 	cout << "You can take any placed puzzle piece out from the game board.\n";
@@ -784,7 +797,7 @@ void rules() {
 void difficulty() {
 	int opt;
 	do {
-		system("clear");
+		clrscr();
 		cout << "*** Suggested difficulty ***\n";
 		cout << "[1] Easy\n";
 		cout << "[2] Normal\n";
