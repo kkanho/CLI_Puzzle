@@ -5,8 +5,8 @@ A CLI puzzle game in C++
 > [!IMPORTANT]\
 > By default, the program can be compiled on Windows. \
 > It can also be executed on macOS by the following command:
-> ```
->    ./Puzzle
+> ```bash
+>    foo@bar ~ % ./Puzzle
 > ```
 
 
