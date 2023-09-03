@@ -1,4 +1,4 @@
-#define WINDOWS 1
+// #define WINDOWS 1
 #include <iostream>
 #include <iomanip>
 
@@ -210,7 +210,7 @@ public:
 	}
 	
 	void showsolution() {
-		cout << setfill(' ') << setw(20) << "Sample Solution!\n";
+		cout << right << setfill(' ') << setw(20) << "Sample Solution!\n";
 		cout << "---------------------\n";
 		cout << "    A  B  C  D  E  \n";
 		cout << "  +---------------+\n";
@@ -429,7 +429,7 @@ void GameStart() {
 				switch (opt) {
 				case('Y'):
 				case('y'):
-					cout << setfill(' ')<< setw(20) << "\nYou lost!!!\n";
+					cout << right << setfill(' ')<< setw(20) << "\nYou lost!!!\n";
 					quit = true; // user quits
 					pause();
 					clrscr();
@@ -605,11 +605,11 @@ void Menu() {
 			clrscr();
 			cout << right << setfill(' ') << setw(15) << "Group 6" << endl; 
 			cout << setfill('-') << setw(30) << ' ' << endl;  
-			cout << left << setfill(' ') << setw(15) << "Ho Kwun Kan" << "21020294A\n";
-			cout << left << setfill(' ') << setw(15) << "Lee Kin Long" << "21119085A\n";
-			cout << left << setfill(' ') << setw(15) << "Leung Pak Ho" << "21109381A\n";
-			cout << left << setfill(' ') << setw(15) << "Ng Tsz To" << "21112810A\n";
-			cout << left << setfill(' ') << setw(15) << "So Yat Hei" << "21094375A\n";
+			cout << setfill(' ') << setw(15) << "Ho Kwun Kan" << "21020294A\n";
+			cout << setfill(' ') << setw(15) << "Lee Kin Long" << "21119085A\n";
+			cout << setfill(' ') << setw(15) << "Leung Pak Ho" << "21109381A\n";
+			cout << setfill(' ') << setw(15) << "Ng Tsz To" << "21112810A\n";
+			cout << setfill(' ') << setw(15) << "So Yat Hei" << "21094375A\n";
 			pause();
 			Menu();
 			break;
