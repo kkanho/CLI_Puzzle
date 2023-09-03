@@ -1,4 +1,4 @@
-// #define WINDOWS 1
+#define WINDOWS 1
 #include <iostream>
 #include <iomanip>
 

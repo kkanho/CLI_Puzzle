@@ -2,6 +2,14 @@
 
 A CLI puzzle game in C++
 
+> [!IMPORTANT]\
+> By default, the program can be compiled on Windows. \
+> It can also be executed on macOS by the following command:
+> ```
+>    ./Puzzle
+> ```
+
+
 # Preview image
 ### Main Menu 
 ![Screenshot 2023-09-03 at 20 47 14](https://github.com/kkanho/CLI_Puzzle/assets/97432128/4597637a-1042-4ce8-b3d6-f67102b750c3)
